@@ -60,12 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const rotatingText = document.getElementById("rotatingText");
 
     const quotes = [
-        "Simplicity is the ultimate sophistication.",
-        "Elegance is not about being noticed, it’s about being remembered.",
-        "Less is more.",
-        "Beauty is power; a smile is its sword.",
-        "Classy is when you have a lot to say, but you choose to remain silent in front of fools.",
-        "Style is a way to say who you are without having to speak."
+        " Software Developer",
+        "Web Developer",
+        "Web Designer",
+        "Frontend Developer",
+        "Backend Developer",
+        "Full Stack Developer",
     ];
 
     let index = 0;

@@ -244,6 +244,11 @@ img {
   width: 295px;
 }
 
+.home_img img {
+  border: 20px solid var(--second-color);
+  border-radius: 2rem;
+}
+
 .text-rotator {
   font-size: 2em;
   color: #333;

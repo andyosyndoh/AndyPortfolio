@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -57,4 +59,13 @@ func RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/api/search", func(w http.ResponseWriter, r *http.Request) {
 		SearchArtists(w, r)
 	})
+}
+
+func GetProjectRoot(first, second string) string {
+	cwd, _ := os.Getwd()
+	baseDir := cwd
+	if strings.HasSuffix(baseDir, "cmd") {
+		baseDir = filepath.Join(cwd, "../")
+	}
+	return filepath.Join(baseDir, first, second)
 }

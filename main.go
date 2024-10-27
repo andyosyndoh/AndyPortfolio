@@ -6,7 +6,12 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"text/template"
 )
+
+var allowedRoutes = map[string]bool{
+	"/":           true,
+}
 
 func main() {
 	mux := http.NewServeMux()
@@ -36,7 +41,7 @@ func RouteChecker(next http.Handler) http.Handler {
 		}
 
 		if _, ok := allowedRoutes[r.URL.Path]; !ok {
-			NotFoundHandler(w, r)
+			http.Error(w, "Not found", http.StatusNotFound)
 			return
 		}
 		next.ServeHTTP(w, r)
@@ -51,14 +56,6 @@ func RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomeHandler(w, r)
 	})
-
-	mux.HandleFunc("/details", func(w http.ResponseWriter, r *http.Request) {
-		Details(w, r)
-	})
-
-	mux.HandleFunc("/api/search", func(w http.ResponseWriter, r *http.Request) {
-		SearchArtists(w, r)
-	})
 }
 
 func GetProjectRoot(first, second string) string {
@@ -68,4 +65,21 @@ func GetProjectRoot(first, second string) string {
 		baseDir = filepath.Join(cwd, "../")
 	}
 	return filepath.Join(baseDir, first, second)
+}
+
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodGet {
+		template, err := template.ParseFiles(GetProjectRoot("views", "home.html"))
+		if err != nil {
+            http.Error(w, err.Error(), http.StatusInternalServerError)
+            return
+        }
+		err = template.Execute(w, nil)
+		if err != nil {
+            http.Error(w, err.Error(), http.StatusInternalServerError)
+            return
+        }
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
 }

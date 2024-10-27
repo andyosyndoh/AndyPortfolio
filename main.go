@@ -69,7 +69,7 @@ func GetProjectRoot(first, second string) string {
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		template, err := template.ParseFiles(GetProjectRoot("views", "home.html"))
+		template, err := template.ParseFiles(GetProjectRoot("views", "index.html"))
 		if err != nil {
             http.Error(w, err.Error(), http.StatusInternalServerError)
             return

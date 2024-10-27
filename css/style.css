@@ -251,3 +251,18 @@ img {
     transition: opacity 0.5s ease;
   }
   
+
+/*==================== Buttons ==================*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: 0.5rem;
+  transition: 0.5s;
+}
+
+.button:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
+}

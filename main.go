@@ -61,9 +61,6 @@ func RegisterRoutes(mux *http.ServeMux) {
 func GetProjectRoot(first, second string) string {
 	cwd, _ := os.Getwd()
 	baseDir := cwd
-	if strings.HasSuffix(baseDir, "") {
-		baseDir = filepath.Join(cwd, "../")
-	}
 	return filepath.Join(baseDir, first, second)
 }
 

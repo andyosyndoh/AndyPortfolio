@@ -168,17 +168,18 @@
         <h2 class="section_title">Contact Us</h2>
 
         <div class="contact_container bg-grid">
-          <form action="" class="contact_form">
-            <input type="text" placeholder="Name" class="contact_input" />
-            <input type="email" placeholder="Email" class="contact_input" />
+          <form action="/send-email" method="POST" class="contact_form">
+            <input type="text" name="name" placeholder="Name" class="contact_input" required />
+            <input type="email" name="email" placeholder="Email" class="contact_input" required />
             <textarea
-              name=""
-              id=""
+              name="message"
               cols="30"
               rows="10"
               class="contact_input"
+              placeholder="Your message"
+              required
             ></textarea>
-            <input type="button" value="Submit" class="contact_button button" />
+            <button type="submit" class="contact_button button">Submit</button>
           </form>
         </div>
       </section>

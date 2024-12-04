@@ -60,12 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const rotatingText = document.getElementById("rotatingText");
 
     const quotes = [
-        " Software Developer",
+        "Software Developer",
         "Web Developer",
         "Web Designer",
         "Frontend Developer",
         "Backend Developer",
-        "Full Stack Developer",
     ];
 
     let index = 0;

@@ -1,0 +1,432 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS to maintain original styling */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #212529;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  /* Header Styles */
+  .header {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('/assets/imgs/header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+  }
+  
+  .header-content {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 55%;
+    transform: translateY(-50%);
+    color: white;
+  }
+  
+  .header-subtitle {
+    font-weight: 200;
+    font-size: calc(20px + (45 - 20) * ((100vw - 300px) / (1600 - 300)));
+  }
+  
+  .header-title {
+    font-size: calc(40px + (120 - 40) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: bold;
+    line-height: 0.7;
+    margin-bottom: 25px;
+    color: inherit;
+  }
+  
+  .header-mono {
+    letter-spacing: 5px;
+    font-weight: 500;
+    font-size: calc(12px + (19 - 12) * ((100vw - 300px) / (1600 - 300)));
+    margin-bottom: 40px;
+  }
+  
+  /* Button Styles */
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #F85C70;
+    border-color: #F85C70;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #f73851;
+    border-color: #f73851;
+  }
+  
+  .btn-outline-primary {
+    color: #F85C70;
+    border-color: #F85C70;
+    background-color: transparent;
+  }
+  
+  .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #F85C70;
+    border-color: #F85C70;
+  }
+  
+  .btn-rounded {
+    border-radius: 100px;
+  }
+  
+  /* Social Icons */
+  .social-icons {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    max-width: 180px;
+  }
+  
+  .social-link {
+    font-size: 18px;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .social-link:hover {
+    color: #F85C70;
+  }
+  
+  /* Section Styles */
+  .section {
+    padding: 80px 0;
+  }
+  
+  .section.bg-custom-gray {
+    background: rgba(242, 244, 247, 0.15);
+  }
+  
+  /* Typography */
+  p {
+    font-size: calc(13px + (14 - 13) * ((100vw - 300px) / (1300 - 300)));
+    opacity: 0.8;
+    color: #444;
+  }
+  
+  .title {
+    font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1300 - 300)));
+  }
+  
+  .icon-md {
+    font-size: 22px;
+  }
+  
+  .icon-lg {
+    font-size: 30px;
+  }
+  
+  .icon-xl {
+    font-size: 65px;
+  }
+  
+  /* Card Styles */
+  .card {
+    margin-bottom: 30px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+  
+  .card-header {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .card-header.has-icon i {
+    background: white;
+    position: absolute;
+    top: -28px;
+    border: 7px solid white;
+    overflow: hidden;
+    font-size: 35px;
+  }
+  
+  .card-body {
+    font-size: 14px;
+    color: #6c757d;
+    padding: 1.25rem;
+  }
+  
+  /* Portfolio Styles */
+  .portfolio .filters {
+    border-bottom: 2px solid #dee2e6;
+    border-radius: 0;
+    padding-bottom: 4px;
+    margin: 0 auto 20px;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .portfolio .filters a {
+    flex-basis: 0;
+    display: block;
+    color: #212529;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.7;
+    padding: 4px 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .portfolio .filters a:hover {
+    opacity: 0.9;
+  }
+  
+  .portfolio .filters a.active {
+    opacity: 1;
+    background: #F85C70;
+    color: white;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 10px -5px;
+    overflow: hidden;
+    border-radius: 2px;
+    backface-visibility: hidden;
+  }
+  
+  .portfolio-item .content-holder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 92, 112, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+  }
+  
+  .portfolio-item:hover .content-holder {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .portfolio-item .content-holder .title {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .portfolio-item .content-holder .subtitle {
+    font-weight: 500;
+    opacity: 1;
+    color: white;
+  }
+  
+  /* Blog Card Styles */
+  .blog-card {
+    display: flex;
+    text-align: left;
+    border: 1px solid #dee2e6;
+    margin-bottom: 30px;
+    overflow: hidden;
+    margin: 0 15px 30px;
+  }
+  
+  .blog-card .img-holder {
+    min-width: 350px;
+    max-width: 350px;
+  }
+  
+  .blog-card .img-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .blog-card .content-holder {
+    padding: 30px 20px 30px 30px;
+  }
+  
+  .blog-card .content-holder .title {
+    font-weight: 500;
+    font-size: 25px;
+    opacity: 0.8;
+  }
+  
+  .blog-card .post-details {
+    margin: 15px 0 15px;
+  }
+  
+  .blog-card .post-details i {
+    display: inline-block;
+    width: 15px;
+  }
+  
+  .blog-card .post-details a {
+    margin-right: 10px;
+    color: #444;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    opacity: 0.7;
+    font-size: 13px;
+  }
+  
+  .blog-card .read-more {
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+    font-size: 13px;
+  }
+  
+  /* Contact Section */
+  .contact {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+  }
+  
+  .contact-form-card,
+  .contact-info-card {
+    padding: 35px;
+    background: white;
+    min-height: 500px;
+  }
+  
+  .contact-info-card {
+    padding-right: 20px;
+  }
+  
+  .contact-title {
+    margin-bottom: 30px;
+  }
+  
+  .contact-title::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: #F85C70;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #17263C;
+    color: white;
+  }
+  
+  /* Form Styles */
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header {
+      height: 500px;
+      min-height: 500px;
+    }
+    
+    .header-content {
+      padding: 20px;
+    }
+    
+    .header-mono {
+      letter-spacing: 2px;
+    }
+    
+    .blog-card {
+      flex-direction: column;
+    }
+    
+    .blog-card .img-holder {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+    
+    .contact {
+      padding: 300px 0 0;
+    }
+    
+    .contact-form-card {
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .contact-form-card,
+    .contact-info-card {
+      min-height: auto;
+    }
+  }
+}

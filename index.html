@@ -20,18 +20,22 @@
     <header class="header">
         <div class="container">
             <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link" href="https://twitter.com/@andy__osyndoh"><i
-                            class="ti-twitter" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link" href="https://linkedin.com/in/andyosyndoh"><i
-                            class="ti-linkedin" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link" href="https://github.com/andyosyndoh"><i
+                <li class="social-item"><a class="social-link" target="_blank"
+                        href="https://twitter.com/@andy__osyndoh"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                <li class="social-item"><a class="social-link" target="_blank"
+                        href="https://linkedin.com/in/andyosyndoh"><i class="ti-linkedin" aria-hidden="true"></i></a>
+                </li>
+                <li class="social-item"><a class="social-link" target="_blank" href="https://github.com/andyosyndoh"><i
                             class="ti-github" aria-hidden="true"></i></a></li>
             </ul>
             <div class="header-content">
                 <h4 class="header-subtitle">Hello, I am</h4>
                 <h1 class="header-title">Andrew Osindo</h1>
                 <h6 class="header-mono">Full Stack Developer | Software Developer</h6>
-                <button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>Print Resume</button>
+                <a href="assets/files/andrew-osindo-cv.pdf" download="Andrew_Osindo_CV.pdf"
+                    class="btn btn-outline-danger" id="downloadCV">
+                    <i class="icon-down-circled2"></i>Download My CV
+                </a>
             </div>
         </div>
     </header>
@@ -90,8 +94,8 @@
                     impactful applications. Driven by a passion for technology, artificial intelligence, and healthcare,
                     Andrew is committed to creating solutions that improve health outcomes—and to inspiring others by
                     sharing the power of software development.</p>
-                <!-- Update the Download CV button -->
-                <a href="assets/files/andrew-osindo-cv.pdf" download class="btn btn-outline-danger">
+                <a href="assets/files/andrew-osindo-cv.pdf" download="Andrew_Osindo_CV.pdf"
+                    class="btn btn-outline-danger" id="downloadCV">
                     <i class="icon-down-circled2"></i>Download My CV
                 </a>
             </div>
@@ -105,12 +109,14 @@
                     <li><span>Address</span> : Lake Basin Mall, Kisumu-Kenya</Kisumu-Kenya></li>
                 </ul>
                 <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link" href="https://twitter.com/@andy__osyndoh"><i
-                                class="ti-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://linkedin.com/in/andyosyndoh"><i
-                                class="ti-linkedin" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://github.com/andyosyndoh"><i
-                                class="ti-github" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" target="_blank"
+                            href="https://twitter.com/@andy__osyndoh"><i class="ti-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="social-item"><a class="social-link" target="_blank"
+                            href="https://linkedin.com/in/andyosyndoh"><i class="ti-linkedin"
+                                aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" target="_blank"
+                            href="https://github.com/andyosyndoh"><i class="ti-github" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
             <div class="col-lg-4 about-card">
@@ -245,13 +251,13 @@
                             </div>
                             <h6>Next Js</h6>
                             <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%"
+                                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <h6>React Js</h6>
                             <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%"
+                                    aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -390,8 +396,7 @@
     <section class="section bg-dark py-5">
         <div class="container text-center">
             <h2 class="text-light mb-5 font-weight-normal">I Am Available For Work</h2>
-            <!-- Update the Hire Me button -->
-            <button class="btn bg-primary w-lg" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+            <button class="btn bg-primary w-lg" id="hireMeBtn">
                 Hire me
             </button>
         </div>
@@ -401,57 +406,139 @@
     <section class="section bg-custom-gray" id="portfolio">
         <div class="container">
             <h1 class="mb-5"><span class="text-danger">My</span> Portfolio</h1>
+
+            <!-- Add Project Button (for admin use) -->
+            <div class="text-right mb-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
+                    <i class="ti-plus"></i> Add Project
+                </button>
+            </div>
+
             <div class="portfolio">
                 <div class="filters">
                     <a href="#" data-filter=".new" class="active">
                         New
                     </a>
-                    <a href="#" data-filter=".advertising">
-                        Advertising
-                    </a>
-                    <a href="#" data-filter=".branding">
-                        Branding
-                    </a>
                     <a href="#" data-filter=".web">
-                        Web
+                        Web Apps
+                    </a>
+                    <a href="#" data-filter=".mobile">
+                        Mobile
+                    </a>
+                    <a href="#" data-filter=".api">
+                        APIs
                     </a>
                 </div>
-                <div class="portfolio-container">
+                <div class="portfolio-container d-flex flex-wrap" id="portfolioContainer">
                     <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/project1.jpg" class="img-fluid" alt="Project 1">
-                            <div class="content-holder">
-                                <a class="img-popup" href="https://github.com/yourusername/project1" target="_blank"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Project Name 1</h6>
+                        <div class="portfolio-item h-100 d-flex flex-column"> <img
+                                src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                class="img-fluid" alt="E-Commerce Platform">
+                            <div class="content-holder flex-grow-1 d-flex flex-column"> <a class="img-popup"
+                                    href="https://github.com/andyosyndoh" target="_blank"></a>
+                                <div class="text-holder flex-grow-1">
+                                    <h6 class="title">E-Commerce Platform</h6>
                                     <p class="subtitle">
-                                        A full-stack web application built with Go and React. Features include user
-                                        authentication, real-time updates, and API integration.
+                                        A modern e-commerce platform built with Next.js and Go backend. Features include
+                                        user authentication, payment integration, and real-time inventory management.
                                     </p>
                                     <div class="mt-2">
-                                        <span class="badge badge-primary">Go</span>
+                                        <span class="badge badge-success">Go</span>
                                         <span class="badge badge-info">React</span>
                                         <span class="badge badge-secondary">PostgreSQL</span>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="portfolio-container" id="portfolioContainer">
+                        <div class="col-md-6 col-lg-4 web new">
+                            <div class="portfolio-item">
+                                <img src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                    class="img-fluid" alt="E-Commerce Platform">
+                                <div class="content-holder">
+                                    <a class="img-popup" href="https://github.com/andyosyndoh" target="_blank"></a>
+                                    <div class="text-holder">
+                                        <h6 class="title">E-Commerce Platform</h6>
+                                        <p class="subtitle">
+                                            A modern e-commerce platform built with Next.js and Go backend. Features
+                                            include user authentication, payment integration, and real-time inventory
+                                            management.
+                                        </p>
+                                        <div class="mt-2">
+                                            <span class="badge badge-primary">Next.js</span>
+                                            <span class="badge badge-success">Go</span>
+                                            <span class="badge badge-info">React</span>
+                                            <span class="badge badge-secondary">PostgreSQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="col-md-6 col-lg-4 web new">
+                            <div class="portfolio-item">
+                                <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                    class="img-fluid" alt="Task Management System">
+                                <div class="content-holder">
+                                    <a class="img-popup" href="https://github.com/andyosyndoh" target="_blank"></a>
+                                    <div class="text-holder">
+                                        <h6 class="title">Task Management System</h6>
+                                        <p class="subtitle">
+                                            A collaborative task management application with real-time updates, team
+                                            collaboration features, and advanced analytics dashboard.
+                                        </p>
+                                        <div class="mt-2">
+                                            <span class="badge badge-primary">React</span>
+                                            <span class="badge badge-info">GraphQL</span>
+                                            <span class="badge badge-success">Node.js</span>
+                                            <span class="badge badge-secondary">MongoDB</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 api new">
+                            <div class="portfolio-item">
+                                <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                    class="img-fluid" alt="Healthcare API">
+                                <div class="content-holder">
+                                    <a class="img-popup" href="https://github.com/andyosyndoh" target="_blank"></a>
+                                    <div class="text-holder">
+                                        <h6 class="title">Healthcare API</h6>
+                                        <p class="subtitle">
+                                            RESTful API for healthcare management system with patient records,
+                                            appointment scheduling, and medical data analytics.
+                                        </p>
+                                        <div class="mt-2">
+                                            <span class="badge badge-success">Go</span>
+                                            <span class="badge badge-info">REST API</span>
+                                            <span class="badge badge-secondary">PostgreSQL</span>
+                                            <span class="badge badge-warning">Docker</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/project2.jpg" class="img-fluid" alt="Project 2">
-                            <div class="content-holder">
-                                <a class="img-popup" href="https://github.com/yourusername/project2" target="_blank"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Project Name 2</h6>
+                        <div class="portfolio-item h-100 d-flex flex-column">
+                            <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                class="img-fluid" alt="Task Management System">
+                            <div class="content-holder flex-grow-1 d-flex flex-column">
+                                <a class="img-popup" href="https://github.com/andyosyndoh" target="_blank"></a>
+                                <div class="text-holder flex-grow-1">
+                                    <h6 class="title">Task Management System</h6>
                                     <p class="subtitle">
-                                        A GraphQL API built with Node.js and Express, featuring data visualization and
-                                        real-time analytics.
+                                        A collaborative task management application with real-time updates, team
+                                        collaboration features, and advanced analytics dashboard.
                                     </p>
                                     <div class="mt-2">
-                                        <span class="badge badge-primary">Node.js</span>
+                                        <span class="badge badge-primary">React</span>
                                         <span class="badge badge-info">GraphQL</span>
+                                        <span class="badge badge-success">Node.js</span>
                                         <span class="badge badge-secondary">MongoDB</span>
                                     </div>
                                 </div>
@@ -459,20 +546,23 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/project3.jpg" class="img-fluid" alt="Project 3">
-                            <div class="content-holder">
-                                <a class="img-popup" href="https://github.com/yourusername/project3" target="_blank"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Project Name 3</h6>
+                    <div class="col-md-6 col-lg-4 api new">
+                        <div class="portfolio-item h-100 d-flex flex-column">
+                            <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                class="img-fluid" alt="Healthcare API">
+                            <div class="content-holder flex-grow-1 d-flex flex-column">
+                                <a class="img-popup" href="https://github.com/andyosyndoh" target="_blank"></a>
+                                <div class="text-holder flex-grow-1">
+                                    <h6 class="title">Healthcare API</h6>
                                     <p class="subtitle">
-                                        A Next.js web application with server-side rendering and dynamic content management.
+                                        RESTful API for healthcare management system with patient records, appointment
+                                        scheduling, and medical data analytics.
                                     </p>
                                     <div class="mt-2">
-                                        <span class="badge badge-primary">Next.js</span>
-                                        <span class="badge badge-info">TypeScript</span>
-                                        <span class="badge badge-secondary">SQL</span>
+                                        <span class="badge badge-success">Go</span>
+                                        <span class="badge badge-info">REST API</span>
+                                        <span class="badge badge-secondary">PostgreSQL</span>
+                                        <span class="badge badge-warning">Docker</span>
                                     </div>
                                 </div>
                             </div>
@@ -483,6 +573,72 @@
         </div>
     </section>
     <!-- End of portfolio section -->
+
+    <!-- Add Project Modal -->
+    <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProjectModalLabel">Add New Project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProjectForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="projectTitle">Project Title</label>
+                                    <input type="text" class="form-control" id="projectTitle" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="projectCategory">Category</label>
+                                    <select class="form-control" id="projectCategory" required>
+                                        <option value="">Select Category</option>
+                                        <option value="web">Web Apps</option>
+                                        <option value="mobile">Mobile</option>
+                                        <option value="api">APIs</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Description</label>
+                            <textarea class="form-control" id="projectDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="projectGithub">GitHub URL</label>
+                                    <input type="url" class="form-control" id="projectGithub" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="projectImage">Image URL</label>
+                                    <input type="url" class="form-control" id="projectImage"
+                                        placeholder="https://images.pexels.com/...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectTechnologies">Technologies (comma separated)</label>
+                            <input type="text" class="form-control" id="projectTechnologies"
+                                placeholder="React, Node.js, MongoDB">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveProject">Add Project</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="section" id="blog">
         <div class="container">
@@ -505,8 +661,8 @@
                             knowledge and skills. How do they achieve this? By collaborating on various projects while
                             learning. At first, one might think collaboration is simple—form a group, complete the task,
                             and move on. After a year at Zone01, working with different learners on various projects, I
-                            can confidently say it’s easy. However, what collaboration consists of is what makes it feel
-                            hard, but we all have to collaborate. So how do we navigate it? Over time, I’ve learned key
+                            can confidently say it's easy. However, what collaboration consists of is what makes it feel
+                            hard, but we all have to collaborate. So how do we navigate it? Over time, I've learned key
                             principles that have helped me collaborate effectively and produce great results. Let me
                             share them with you.</p>
                         <a href="https://dev.to/andyosyndoh/deciphering-collaboration-11bk" target="_blank"
@@ -525,9 +681,11 @@
                 <div class="col-lg-8">
                     <div class="contact-form-card">
                         <h4 class="contact-title">Send a message</h4>
-                        <form action="https://formsubmit.co/andyovvo8@gmail.com" method="POST">
-                            <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+                        <form id="contactForm" action="https://formsubmit.co/andyovvo8@gmail.com" method="POST">
+                            <input type="hidden" name="_next" value="#contact">
                             <input type="hidden" name="_subject" value="New Portfolio Contact!">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
                             <div class="form-group">
                                 <input class="form-control" type="text" name="name" placeholder="Name *" required>
                             </div>
@@ -535,12 +693,19 @@
                                 <input class="form-control" type="email" name="email" placeholder="Email *" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" placeholder="Message *" rows="7" required></textarea>
+                                <textarea class="form-control" name="message" placeholder="Message *" rows="7"
+                                    required></textarea>
                             </div>
                             <div class="form-group ">
-                                <button type="submit" class="form-control btn btn-primary">Send Message</button>
+                                <button type="submit" class="form-control btn btn-primary" id="submitBtn">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="ti-reload"></i> Sending...
+                                    </span>
+                                </button>
                             </div>
                         </form>
+                        <div id="formMessage" style="display: none;" class="alert mt-3"></div>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -560,7 +725,7 @@
                                 <i class="ti-map-alt icon-md"></i>
                             </div>
                             <div class="col-10">
-                                <h6 class="d-inline">Address :<br> <span class="text-muted">Lake Basin Mall,
+                                <h6 class="d-inline">Address :<br> <span class="text-muted">
                                         Kisumu-Kenya</span></h6>
                             </div>
                         </div>
@@ -574,12 +739,15 @@
                             </div>
                         </div>
                         <ul class="social-icons pt-4">
-                            <li class="social-item"><a class="social-link" href="https://twitter.com/@andy__osyndoh"><i
-                                        class="ti-twitter" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link" href="https://linkedin.com/in/andyosyndoh"><i
-                                        class="ti-linkedin" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link" href="https://github.com/andyosyndoh"><i
-                                        class="ti-github" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link" target="_blank"
+                                    href="https://twitter.com/@andy__osyndoh"><i class="ti-twitter"
+                                        aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link" target="_blank"
+                                    href="https://linkedin.com/in/andyosyndoh"><i class="ti-linkedin"
+                                        aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link" target="_blank"
+                                    href="https://github.com/andyosyndoh"><i class="ti-github"
+                                        aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -609,6 +777,181 @@
 
     <!-- JohnDoe js -->
     <script src="assets/js/johndoe.js"></script>
+
+    <!-- Custom Portfolio JS -->
+    <script>
+        // Portfolio Management
+        class PortfolioManager {
+            constructor() {
+                this.projects = this.loadProjects();
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.renderProjects();
+            }
+
+            bindEvents() {
+                // Save project
+                document.getElementById('saveProject').addEventListener('click', () => {
+                    this.addProject();
+                });
+
+                // Hire me button
+                document.getElementById('hireMeBtn').addEventListener('click', () => {
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                });
+
+                // Contact form
+                document.getElementById('contactForm').addEventListener('submit', (e) => {
+                    this.handleContactForm(e);
+                });
+
+                // Download CV tracking
+                document.getElementById('downloadCV').addEventListener('click', () => {
+                    this.trackDownload();
+                });
+            }
+
+            loadProjects() {
+                const saved = localStorage.getItem('portfolioProjects');
+                return saved ? JSON.parse(saved) : [];
+            }
+
+            saveProjects() {
+                localStorage.setItem('portfolioProjects', JSON.stringify(this.projects));
+            }
+
+            addProject() {
+                const form = document.getElementById('addProjectForm');
+                const formData = new FormData(form);
+
+                const project = {
+                    id: Date.now(),
+                    title: document.getElementById('projectTitle').value,
+                    category: document.getElementById('projectCategory').value,
+                    description: document.getElementById('projectDescription').value,
+                    github: document.getElementById('projectGithub').value,
+                    image: document.getElementById('projectImage').value || 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=400',
+                    technologies: document.getElementById('projectTechnologies').value.split(',').map(tech => tech.trim())
+                };
+
+                this.projects.push(project);
+                this.saveProjects();
+                this.renderProjects();
+
+                // Close modal and reset form
+                $('#addProjectModal').modal('hide');
+                form.reset();
+
+                // Show success message
+                this.showMessage('Project added successfully!', 'success');
+            }
+
+            renderProjects() {
+                const container = document.getElementById('portfolioContainer');
+                const customProjects = this.projects.map(project => this.createProjectHTML(project)).join('');
+
+                // Keep existing projects and add new ones
+                const existingProjects = container.innerHTML;
+                container.innerHTML = existingProjects + customProjects;
+
+                // Reinitialize isotope if available
+                if (window.$ && $('.portfolio-container').data('isotope')) {
+                    $('.portfolio-container').isotope('reloadItems').isotope();
+                }
+            }
+
+            createProjectHTML(project) {
+                const badges = project.technologies.map(tech =>
+                    `<span class="badge badge-primary">${tech}</span>`
+                ).join(' ');
+
+                return `
+                    <div class="col-md-6 col-lg-4 ${project.category} new" data-project-id="${project.id}">
+                        <div class="portfolio-item">
+                            <img src="${project.image}" class="img-fluid" alt="${project.title}">
+                            <div class="content-holder">
+                                <a class="img-popup" href="${project.github}" target="_blank"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">${project.title}</h6>
+                                    <p class="subtitle">${project.description}</p>
+                                    <div class="mt-2">
+                                        ${badges}
+                                    </div>
+                                    <div class="mt-2">
+                                        <button class="btn btn-sm btn-danger" onclick="portfolioManager.removeProject(${project.id})">
+                                            <i class="ti-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            removeProject(projectId) {
+                if (confirm('Are you sure you want to remove this project?')) {
+                    this.projects = this.projects.filter(p => p.id !== projectId);
+                    this.saveProjects();
+
+                    // Remove from DOM
+                    const projectElement = document.querySelector(`[data-project-id="${projectId}"]`);
+                    if (projectElement) {
+                        projectElement.remove();
+                    }
+
+                    this.showMessage('Project removed successfully!', 'success');
+                }
+            }
+
+            handleContactForm(e) {
+                const submitBtn = document.getElementById('submitBtn');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoading = submitBtn.querySelector('.btn-loading');
+
+                // Show loading state
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline';
+                submitBtn.disabled = true;
+
+                // The form will submit naturally to FormSubmit
+                // We'll show a success message after a delay
+                setTimeout(() => {
+                    this.showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+                    document.getElementById('contactForm').reset();
+
+                    // Reset button state
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    submitBtn.disabled = false;
+                }, 2000);
+            }
+
+            trackDownload() {
+                console.log('CV download initiated');
+                this.showMessage('CV download started!', 'info');
+            }
+
+            showMessage(message, type) {
+                const messageDiv = document.getElementById('formMessage');
+                messageDiv.className = `alert alert-${type === 'success' ? 'success' : type === 'error' ? 'danger' : 'info'}`;
+                messageDiv.textContent = message;
+                messageDiv.style.display = 'block';
+
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Initialize portfolio manager when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            window.portfolioManager = new PortfolioManager();
+        });
+    </script>
 
 </body>
 

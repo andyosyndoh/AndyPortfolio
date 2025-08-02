@@ -52,6 +52,7 @@ gulp.task('sass', function() {
 gulp.task('css', function() {
     return gulp.src(paths.src.css)
     .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(replace('../fonts', '../vendors/themify-icons/fonts'))
     .pipe(concat('johndoe.css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(paths.dist.css))
@@ -91,8 +92,7 @@ gulp.task('html', function(){
     return gulp.src(paths.src.html)
     .pipe(replace('assets/css/johndoe.css', 'css/johndoe.min.css'))
     .pipe(replace('assets/js/johndoe.js', 'js/johndoe.min.js'))
-    .pipe(replace('assets/vendors/', 'vendors/'))
-    .pipe(replace('assets/imgs/', 'imgs/'))
+    .pipe(replace(/assets\//g, ''))
     .pipe(gulp.dest(paths.dist.root))
 });
 
@@ -108,7 +108,7 @@ gulp.task('nodemodules', function(){
 });
 
 // Prepare all assets for production
-gulp.task('build', gulp.series('sass', 'css', 'js', 'vendors', 'img', 'html', 'nodemodules'));
+gulp.task('build', gulp.series('clean', 'sass', 'css', 'js', 'vendors', 'img', 'html', 'nodemodules'));
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', function() {

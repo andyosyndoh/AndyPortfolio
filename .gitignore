@@ -58,3 +58,4 @@ __pycache__/
 
 # Local development
 .cache/
+.parcel-cache/

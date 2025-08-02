@@ -2,16 +2,18 @@
   "name": "Andy",
   "version": "1.5.0",
   "description": "An elegant responsive bootstrap 4.x theme.",
-  "main": "gulpfile.js",
   "author": "andyosyndoh",
   "scripts": {
-    "start": "gulp",
-    "dev": "gulp watch",
+    "start": "npm run dev",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "gulp:start": "gulp",
+    "gulp:watch": "gulp watch",
     "serve": "python3 serve.py",
     "serve-simple": "python3 -m http.server 3000",
-    "build": "gulp build",
-    "sass": "gulp sass",
-    "netlify-build": "echo 'Static site - no build required'"
+    "gulp:build": "gulp build",
+    "gulp:sass": "gulp sass",
+    "netlify-build": "npm run build"
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
@@ -27,6 +29,7 @@
     "gulp-uglify": "^3.0.2",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-pngquant": "^7.0.0",
+    "parcel": "^2.15.4",
     "sass": "^1.70.0"
   },
   "browserslist": [

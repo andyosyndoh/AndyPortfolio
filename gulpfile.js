@@ -21,7 +21,7 @@ var paths = {
     },
     src: {
         root:       'assets',
-        html:       '**/*.html',
+        html:       '*.html',
         css:        'assets/css/*.css',
         js:         'assets/js/*.js',
         vendors:    'assets/vendors/**/*.*',
@@ -91,7 +91,8 @@ gulp.task('html', function(){
     return gulp.src(paths.src.html)
     .pipe(replace('assets/css/johndoe.css', 'css/johndoe.min.css'))
     .pipe(replace('assets/js/johndoe.js', 'js/johndoe.min.js'))
-    .pipe(replace(/assets\//g, ''))
+    .pipe(replace('assets/vendors/', 'vendors/'))
+    .pipe(replace('assets/imgs/', 'imgs/'))
     .pipe(gulp.dest(paths.dist.root))
 });
 

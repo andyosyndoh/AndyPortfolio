@@ -29,6 +29,25 @@ $(document).ready(function(){
             });
         } 
     });
+
+    // Navbar affix
+    const nav = document.querySelector('.navbar');
+    const header = document.querySelector('.header');
+    const navHeight = nav.offsetHeight;
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                nav.classList.remove('affix');
+            } else {
+                nav.classList.add('affix');
+            }
+        });
+    }, {
+        rootMargin: `-${navHeight}px`
+    });
+
+    observer.observe(header);
 });
 
 // protfolio filters
@@ -99,7 +118,7 @@ function initMap() {
         {
           featureType: 'road',
           elementType: 'geometry',
-          stylers: [{color: '#38414e'}]
+          stylers: [{color: '#38414e'}],
         },
         {
           featureType: 'road',

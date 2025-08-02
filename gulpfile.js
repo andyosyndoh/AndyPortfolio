@@ -11,6 +11,7 @@ const browserSync   = require('browser-sync').create();
 const autoprefixer  = require('gulp-autoprefixer');
 const jpgRecompress = require('imagemin-jpeg-recompress'); 
 const clean         = require('gulp-clean');
+const replace       = require('gulp-replace');
 
 
 // Paths
@@ -88,6 +89,9 @@ gulp.task('vendors', function(){
 
 gulp.task('html', function(){
     return gulp.src(paths.src.html)
+    .pipe(replace('assets/css/johndoe.css', 'css/johndoe.min.css'))
+    .pipe(replace('assets/js/johndoe.js', 'js/johndoe.min.js'))
+    .pipe(replace(/assets\//g, ''))
     .pipe(gulp.dest(paths.dist.root))
 });
 

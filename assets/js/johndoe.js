@@ -58,7 +58,13 @@ $(window).on("load", function() {
 
 // google maps
 function initMap() {
-// Styles a map in night mode.
+    // Check if Google Maps API is loaded
+    if (typeof google === 'undefined' || !google.maps) {
+        console.warn('Google Maps API not loaded');
+        return;
+    }
+    
+    // Styles a map in night mode.
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.674, lng: -73.945},
         zoom: 12,

@@ -10,7 +10,8 @@
     "serve": "python3 serve.py",
     "serve-simple": "python3 -m http.server 3000",
     "build": "gulp build",
-    "sass": "gulp sass"
+    "sass": "gulp sass",
+    "netlify-build": "echo 'Static site - no build required'"
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",

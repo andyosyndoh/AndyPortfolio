@@ -1,0 +1,2 @@
+# Redirect rules for Netlify
+/components /components.html 200

@@ -2,6 +2,36 @@
 
 A professional portfolio website showcasing full-stack development skills and projects.
 
+## 🚀 Live Demo
+
+The portfolio is deployed on Netlify and can be viewed at: [Your Netlify URL will appear here after deployment]
+
+## 📦 Netlify Deployment
+
+This portfolio is optimized for Netlify deployment:
+
+### Quick Deploy
+1. **Fork this repository** to your GitHub account
+2. **Connect to Netlify:**
+   - Go to [Netlify](https://netlify.com)
+   - Click "New site from Git"
+   - Choose GitHub and select your forked repository
+   - Build settings are automatically configured via `netlify.toml`
+   - Click "Deploy site"
+
+### Manual Deploy
+1. **Build the site locally** (optional):
+   ```bash
+   npm install
+   npm run build
+   ```
+2. **Drag and drop** the entire project folder to Netlify's deploy area
+
+### Configuration
+- **Build Command:** Not required (static site)
+- **Publish Directory:** `.` (root directory)
+- **Node Version:** 18 (configured in netlify.toml)
+
 ## 🚀 Quick Start
 
 ### Method 1: Automatic Server (Recommended)

@@ -33,9 +33,3 @@
   to = "/components.html"
   status = 200
 
-# Handle SPA-like routing if needed
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}

@@ -25,14 +25,16 @@ var paths = {
         js:         'assets/js/*.js',
         vendors:    'assets/vendors/**/*.*',
         imgs:       'assets/imgs/**/*.+(png|jpg|gif|svg)',
-        scss:       'assets/scss/**/*.scss'
+        scss:       'assets/scss/**/*.scss',
+        nodemodules:    'node_modules/**/*.*'
     },
     dist: {
         root:       'dist',
         css:        'dist/css',
         js:         'dist/js',
         imgs:       'dist/imgs',
-        vendors:    'dist/vendors'
+        vendors:    'dist/vendors',
+        nodemodules:    'dist/node_modules'
     }
 }
 
@@ -95,8 +97,13 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
+gulp.task('nodemodules', function(){
+    return gulp.src(paths.src.nodemodules)
+    .pipe(gulp.dest(paths.dist.nodemodules))
+});
+
 // Prepare all assets for production
-gulp.task('build', gulp.series('sass', 'css', 'js', 'vendors', 'img', 'html'));
+gulp.task('build', gulp.series('sass', 'css', 'js', 'vendors', 'img', 'html', 'nodemodules'));
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', function() {

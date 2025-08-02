@@ -84,6 +84,11 @@ gulp.task('vendors', function(){
     .pipe(gulp.dest(paths.dist.vendors))
 });
 
+gulp.task('html', function(){
+    return gulp.src(paths.src.html)
+    .pipe(gulp.dest(paths.dist.root))
+});
+
 // clean dist
 gulp.task('clean', function () {
     return gulp.src(paths.dist.root)
@@ -91,7 +96,7 @@ gulp.task('clean', function () {
 });
 
 // Prepare all assets for production
-gulp.task('build', gulp.series('sass', 'css', 'js', 'vendors', 'img'));
+gulp.task('build', gulp.series('sass', 'css', 'js', 'vendors', 'img', 'html'));
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', function() {

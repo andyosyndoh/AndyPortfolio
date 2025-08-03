@@ -10885,6 +10885,7 @@ pre .code {
   background: #17263C;
 }
 
+/* Styles for larger screens (default) */
 .header {
   position: relative;
   height: 80vh;
@@ -10896,6 +10897,14 @@ pre .code {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
+}
+
+/* Styles for smaller screens (e.g., max-width of 768px) */
+@media screen and (max-width: 768px) {
+  .header {
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../imgs/header.png);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../imgs/header.png);
+  }
 }
 .header .container {
   position: relative;

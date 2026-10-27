@@ -1,262 +1,71 @@
 # Andy Osindo Portfolio
 
-A professional portfolio website showcasing full-stack development skills and projects.
+A static portfolio with project filters, a CV download and a contact form.
 
-## 🚀 Live Demo
+## Develop
 
-The portfolio is deployed on Netlify and can be viewed at: [Your Netlify URL will appear here after deployment]
+Use Node.js 22 or later and Python 3.11 or later.
 
-## 📦 Netlify Deployment
-
-This portfolio is optimized for Netlify deployment:
-
-### Quick Deploy
-1. **Fork this repository** to your GitHub account
-2. **Connect to Netlify:**
-   - Go to [Netlify](https://netlify.com)
-   - Click "New site from Git"
-   - Choose GitHub and select your forked repository
-   - Build settings are automatically configured via `netlify.toml`
-   - Click "Deploy site"
-
-### Manual Deploy
-1. **Build the site locally** (optional):
-   ```bash
-   npm install
-   npm run build
-   ```
-2. **Drag and drop** the entire project folder to Netlify's deploy area
-
-### Configuration
-- **Build Command:** Not required (static site)
-- **Publish Directory:** `.` (root directory)
-- **Node Version:** 18 (configured in netlify.toml)
-
-## 🚀 Quick Start
-
-### Method 1: Automatic Server (Recommended)
 ```bash
-./start-server.sh
-```
-
-### Method 2: Python Server
-```bash
-python3 serve.py
-```
-
-### Method 3: Manual Python Server
-```bash
-python3 -m http.server 3000
-```
-
-### Method 4: Node.js (if npm dependencies are installed)
-```bash
+npm ci
 npm start
-# or
-npm run dev
 ```
 
-## 📁 Project Structure
+This builds the site and previews `dist/` at http://127.0.0.1:3000. Rebuild
+and refresh after changing source files. `./start-server.sh` does the same.
+The preview binds only to loopback, blocks directory listings and serves
+built public files rather than the repository.
 
-```
-AndyPortfolio/
-├── index.html              # Main portfolio page
-├── components.html          # UI components showcase
-├── serve.py                # Python development server
-├── start-server.sh         # Auto-start script
-├── gulpfile.js             # Gulp build configuration
-├── package.json            # Node.js dependencies
-├── assets/
-│   ├── css/
-│   │   └── johndoe.css     # Compiled CSS (ready to use)
-│   ├── scss/               # SCSS source files
-│   ├── js/
-│   │   └── johndoe.js      # Main JavaScript
-│   ├── imgs/               # Images and assets
-│   └── vendors/            # Third-party libraries
-└── development-setup-plan.md # Development setup documentation
-```
+## Build and verify
 
-## 🛠️ Development Server Options
-
-### Option 1: Python Server (serve.py)
-**Features:**
-- ✅ No dependencies required
-- ✅ Auto-opens browser
-- ✅ Shows local and network URLs
-- ✅ CORS headers for development
-- ✅ Custom logging
-
-**Usage:**
 ```bash
-python3 serve.py
+npm run build
+npm test
+npm audit
 ```
 
-**Output:**
-```
-🚀 Portfolio Development Server
-============================================================
-📂 Serving directory: /home/andy/AndyPortfolio
-🌐 Local server: http://localhost:3000
-📱 Network access: http://192.168.1.100:3000
-============================================================
-📝 Available pages:
-   • Portfolio: http://localhost:3000/
-   • Components: http://localhost:3000/components.html
-============================================================
-Press Ctrl+C to stop the server
-============================================================
-```
+The build copies both HTML pages, public assets and the pinned browser libraries
+from `node_modules` into `dist/`. It excludes development tools, package files,
+SCSS sources and source maps. The old Gulp/Parcel pipeline has been removed.
+The theme's compiled CSS is preserved; to edit its SCSS sources, run `npm run sass`.
+Bootstrap 5 JavaScript powers the interactive controls with `data-bs-*`
+attributes; the existing Bootstrap 4 based theme supplies the visual styles.
 
-### Option 2: Gulp + Browser-sync (Advanced)
-**Features:**
-- ✅ Live reload on file changes
-- ✅ SCSS compilation
-- ✅ CSS/JS minification
-- ✅ Cross-device synchronization
+The regression tests require a build and local socket access. They check script
+and link safety, public asset references, security headers, traversal, symlink
+escapes, hidden files and directory listing restrictions.
 
-**Setup:**
-```bash
-# Install dependencies (requires internet connection)
-npm install
+## Deploy to Netlify
 
-# Start development server
-npm run dev
-# or
-gulp watch
-```
+Connect this repository to Netlify. `netlify.toml` configures:
 
-**Available Scripts:**
-- `npm start` - Start default gulp task
-- `npm run dev` - Start development server with live reload
-- `npm run build` - Build production assets
-- `npm run sass` - Compile SCSS only
+- Build command: `npm run netlify-build`
+- Publish directory: `dist`
+- Node.js: 22
+- Content Security Policy, HTTPS persistence, framing restrictions, MIME sniffing
+  protection, referrer policy and disabled camera/microphone/geolocation access.
 
-## 🎨 Styling
+Deploy through the repository integration so Netlify applies `netlify.toml`.
+Deploy the generated `dist/` directory only. For other hosting providers, configure
+the same response headers from `netlify.toml` and HTTPS on that host.
 
-### CSS
-The main stylesheet is already compiled and located at:
-- `assets/css/johndoe.css` - Main compiled CSS (242KB)
+## Contact form
 
-### SCSS Development
-Source SCSS files are in `assets/scss/`:
-- `johndoe.scss` - Main SCSS entry point
-- `abstracts/` - Variables and mixins
-- `base/` - Typography and base styles
-- `components/` - UI component styles
-- `layout/` - Layout-specific styles
-- `vendors/` - Third-party library styles (Bootstrap 4.3.1)
+The form submits directly to FormSubmit over HTTPS, with its default CAPTCHA and
+a honeypot field. FormSubmit handles submission confirmation. Its email recipient
+must be activated with the service before messages can be delivered. Client-side
+validation is only a usability aid; spam control and validation at the receiving
+service remain necessary. Automated tests do not send messages.
 
-To compile SCSS:
-```bash
-# If gulp is set up
-npm run sass
+## Files
 
-# Or use any SCSS compiler
-sass assets/scss/johndoe.scss assets/css/johndoe.css
-```
+- `index.html`, `components.html`: pages
+- `assets/`: theme CSS, JavaScript, images, icons and CV
+- `scripts/build.mjs`: static build
+- `serve.py`: restricted local preview
+- `tests/test_security.py`: security regression tests
+- `netlify.toml`: hosting and security configuration
 
-## 🌐 Accessing Your Portfolio
-
-### Local Development
-- **Main Portfolio:** http://localhost:3000/
-- **Components Page:** http://localhost:3000/components.html
-
-### Network Access
-When using the Python server, you'll see a network URL like:
-- **Network:** http://192.168.1.100:3000/
-
-This allows you to:
-- Test on mobile devices
-- Share with others on the same network
-- Test responsive design across devices
-
-## 🔧 Troubleshooting
-
-### Port Already in Use
-The Python server automatically finds an available port starting from 3000.
-
-### Network Issues with npm
-If `npm install` fails due to network issues:
-1. Use the Python server (no dependencies required)
-2. Try: `npm install --registry https://registry.npmjs.org/`
-3. Check your proxy settings
-4. Use the manual Python server: `python3 -m http.server 3000`
-
-### Python Not Found
-Install Python:
-```bash
-# Ubuntu/Debian
-sudo apt install python3
-
-# macOS
-brew install python3
-
-# Windows
-# Download from python.org
-```
-
-### File Permissions
-Make scripts executable:
-```bash
-chmod +x serve.py
-chmod +x start-server.sh
-```
-
-## 📱 Features
-
-### Portfolio Highlights
-- **Responsive Design** - Works on all devices
-- **Interactive Portfolio** - Dynamic project showcase
-- **Contact Form** - Integrated with FormSubmit
-- **CV Download** - Direct PDF download
-- **Social Links** - Twitter, LinkedIn, GitHub
-- **Blog Integration** - Links to dev.to articles
-
-### Technical Features
-- **Bootstrap 4.3.1** - Responsive framework
-- **jQuery 3.4.1** - JavaScript library
-- **Isotope** - Portfolio filtering
-- **Leaflet** - Map integration (if needed)
-- **Local Storage** - Project management
-- **Form Validation** - Contact form handling
-
-## 🚀 Deployment
-
-### For Production
-1. **Build assets** (if using Gulp):
-   ```bash
-   npm run build
-   ```
-
-2. **Upload files** to your web server:
-   - `index.html`
-   - `components.html`
-   - `assets/` folder
-   - Any other static files
-
-### Hosting Options
-- **GitHub Pages** - Free static hosting
-- **Netlify** - Free with CI/CD
-- **Vercel** - Free with automatic deployments
-- **Traditional Web Hosting** - Upload via FTP/SFTP
-
-## 📞 Support
-
-If you encounter any issues:
-1. Check the console for error messages
-2. Ensure all files are in the correct locations
-3. Verify Python 3 is installed
-4. Try the alternative server methods
-5. Open `index.html` directly in your browser as a fallback
-
-## 🎯 Next Steps
-
-1. **Customize Content** - Update personal information in `index.html`
-2. **Add Projects** - Use the portfolio management system
-3. **Update Styling** - Modify SCSS files and recompile
-4. **Deploy** - Choose a hosting platform and deploy your portfolio
-
----
-
-**Happy coding! 🚀**
+Changes here take effect on the public website after deployment. This repository
+does not identify a live site URL, so production responses must be checked after
+deploying.

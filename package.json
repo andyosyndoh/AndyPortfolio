@@ -5,32 +5,16 @@
   "author": "andyosyndoh",
   "scripts": {
     "start": "npm run dev",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html",
-    "gulp:start": "gulp",
-    "gulp:watch": "gulp watch",
+    "dev": "npm run build && python3 serve.py",
+    "build": "node scripts/build.mjs",
     "serve": "python3 serve.py",
-    "serve-simple": "python3 -m http.server 3000",
-    "gulp:build": "gulp build",
-    "gulp:sass": "gulp sass",
+    "serve-simple": "python3 serve.py",
+    "sass": "sass --no-source-map assets/scss/johndoe.scss assets/css/johndoe.css",
+    "test": "python3 -m unittest discover -s tests",
     "netlify-build": "npm run build"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^5.0.1",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.1.4",
-    "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.2",
-    "imagemin-jpeg-recompress": "^6.0.0",
-    "imagemin-pngquant": "^7.0.0",
-    "parcel": "^2.15.4",
-    "sass": "^1.70.0"
+    "sass": "^1.93.2"
   },
   "browserslist": [
     "> 1%",
@@ -43,5 +27,13 @@
     "opera >= 23",
     "ios >= 7",
     "android >= 4"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "3.7.1",
+    "bootstrap": "5.3.8",
+    "isotope-layout": "3.0.6"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }

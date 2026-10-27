@@ -18,12 +18,13 @@ $(document).ready(function(){
 
         if (this.hash !== "") {
 
+            if (!document.getElementById(this.hash.slice(1))) return;
             event.preventDefault();
 
             var hash = this.hash;
 
             $('html, body').animate({
-                scrollTop: $(hash).offset().top
+                scrollTop: document.getElementById(hash.slice(1)).getBoundingClientRect().top + window.scrollY
             }, 700, function(){
                 window.location.hash = hash;
             });

@@ -72,11 +72,11 @@
 
   &::after,
   .dropup &::after,
-  .dropright &::after {
+  .dropend &::after {
     margin-left: 0;
   }
 
-  .dropleft &::before {
+  .dropstart &::before {
     margin-right: 0;
   }
 }
